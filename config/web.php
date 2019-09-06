@@ -39,10 +39,6 @@ $config = [
             ],
         ],
         'db' => $db,
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-            'defaultRoles' => ['guest', 'user'],
-        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -55,12 +51,10 @@ $config = [
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
-
+            'enableUnconfirmedLogin' => true,
             'admins' => ['admin']
         ],
-        'rbac' => [
-            'class' => 'yii2mod\rbac\Module',
-        ],
+        'rbac' => 'dektrium\rbac\RbacWebModule',
     ],
     'params' => $params,
 ];
